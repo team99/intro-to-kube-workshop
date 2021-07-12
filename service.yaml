@@ -6,8 +6,6 @@ metadata:
     env: dev
     service: my-app
   name: my-app
-  annotations:
-    cloud.google.com/load-balancer-type: Internal
   namespace: <INSERT YOUR NAMESPACE>
 spec:
   selector:
@@ -17,6 +15,6 @@ spec:
   type: LoadBalancer
   ports:
   - port: 80
-    targetPort: 6000
+    targetPort: 8080
     protocol: TCP
     name: http-my-app-dev

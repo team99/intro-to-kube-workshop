@@ -1,0 +1,19 @@
+# Base Image
+FROM node:14
+
+# set the working directory in the container
+WORKDIR /app
+
+# copy the dependencies file to the working directory
+COPY package.json /app
+
+# install dependencies
+RUN npm install
+
+# copy the content of current folder to /app
+COPY . /app
+
+EXPOSE 8080
+
+# command to run on container start
+CMD ["npm", "start"]
