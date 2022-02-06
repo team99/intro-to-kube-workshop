@@ -1,5 +1,6 @@
 # Base Image
-FROM python:3.8
+# From the official Python Docker image https://hub.docker.com/_/python
+FROM docker pull python:3.9.10-slim-buster
 
 # set the working directory in the container
 WORKDIR /app
