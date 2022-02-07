@@ -1,6 +1,6 @@
 # Base Image
 # From the official Python Docker image https://hub.docker.com/_/python
-FROM docker pull python:3.9.10-slim-buster
+FROM python:3.9.10-slim-buster
 
 # set the working directory in the container
 WORKDIR /app
@@ -12,8 +12,10 @@ COPY requirements.txt .
 
 # install dependencies
 # RUN will create additional layer on top of base OS image
-RUN pip install -r requirements.txt
-# RUN apt-get install git curl bash
+RUN pip install --no-cache-dir pip==22.0.3 && \
+    pip install --no-cache-dir -r requirements.txt
+
+# append with && for other software e.g apt-get install git curl bash
 
 # copy the content of current folder to the working directory
 COPY . .
